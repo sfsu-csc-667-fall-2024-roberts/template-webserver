@@ -2,6 +2,8 @@ package server;
 
 import java.net.ServerSocket;
 
+import server.config.MimeTypes;
+
 public class WebServer implements AutoCloseable {
 
     private ServerSocket serverSocket;
@@ -23,7 +25,22 @@ public class WebServer implements AutoCloseable {
 
     }
 
-    public WebServer(int port, String documentRoot, String mimeTypes) {
+    /**
+     * 
+     * Example of mimeTypeFileContent: html htm text/html\npng image/png\njpg
+     * image/jpeg\ngif image/gif\n
+     */
+    public WebServer(int port, String documentRoot, String mimeTypeFileContent) {
+        MimeTypes mimeTypes = MimeTypes.getDefault();
+
+        // Parse the mimeTypesFileContent and add the mime types to the mimeTypes object
+        mimeTypeFileContent.lines().forEach(line -> {
+            String[] parts = line.split(" ");
+
+            for (int index = 0; index < parts.length - 1; index++) {
+                mimeTypes.addMimeType(parts[index], parts[parts.length - 1]);
+            }
+        });
 
     }
 
