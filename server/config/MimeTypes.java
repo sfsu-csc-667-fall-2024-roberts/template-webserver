@@ -17,6 +17,11 @@ public class MimeTypes {
         mimeTypes.addMimeType("js", "text/javascript");
         mimeTypes.addMimeType("json", "application/json");
 
+        mimeTypes.addMimeType("css", "text/css",);
+        mimeTypes.addMimeType("gif", "image/gif");
+        mimeTypes.addMimeType("svg", "image/svg+xml");
+        mimeTypes.addMimeType("pdf", "application/pdf");
+
         return mimeTypes;
     }
 

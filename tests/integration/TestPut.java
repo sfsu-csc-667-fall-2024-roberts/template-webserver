@@ -30,8 +30,12 @@ public class TestPut {
             RequestReader reader = new RequestReader(is);
 
             assertEquals("HTTP/1.1 201 Created", reader.getFirstLine());
+            Path createdFilePath = Path.of(docRoot, "putdir", "test.txt");
 
-            assertTrue(Files.exists(Path.of(docRoot, "putdir", "test.txt")));
+            assertTrue(Files.exists(createdFilePath));
+
+            String content = Files.readString(createdFilePath);
+            assertEquals(testContent, content);
         }
     }
 }
