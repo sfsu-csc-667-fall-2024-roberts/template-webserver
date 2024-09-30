@@ -35,7 +35,7 @@ public class WebServer implements AutoCloseable {
 
         // Parse the mimeTypesFileContent and add the mime types to the mimeTypes object
         mimeTypeFileContent.lines().forEach(line -> {
-            String[] parts = line.split(" ");
+            String[] parts = line.split("\\s+");
 
             for (int index = 0; index < parts.length - 1; index++) {
                 mimeTypes.addMimeType(parts[index], parts[parts.length - 1]);

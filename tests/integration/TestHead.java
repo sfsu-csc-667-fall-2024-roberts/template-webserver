@@ -24,7 +24,7 @@ public class TestHead {
         try (WebServer server = new WebServer(9753, docRoot)) {
             server.listen();
 
-            InputStream is = RequestSender.sendRequest(9753, "GET", "/test.txt", new String[] {}, null);
+            InputStream is = RequestSender.sendRequest(9753, "HEAD", "/test.txt", new String[] {}, null);
             RequestReader reader = new RequestReader(is);
 
             assertEquals("HTTP/1.1 200 Ok", reader.getFirstLine());
