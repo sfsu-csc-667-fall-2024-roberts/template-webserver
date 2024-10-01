@@ -43,6 +43,8 @@ public class TestAuthentication {
 
             assertEquals("HTTP/1.1 401 Unauthorized", reader.getFirstLine());
             assertTrue(reader.getHeaders().contains("WWW-Authenticate: Basic realm=\"667 Server\""));
+
+            server.stop();
         }
     }
 
@@ -67,6 +69,8 @@ public class TestAuthentication {
             RequestReader reader = new RequestReader(is);
 
             assertEquals("HTTP/1.1 200 Ok", reader.getFirstLine());
+
+            server.stop();
         }
     }
 
@@ -91,6 +95,8 @@ public class TestAuthentication {
             RequestReader reader = new RequestReader(is);
 
             assertEquals("HTTP/1.1 403 Forbidden", reader.getFirstLine());
+
+            server.stop();
         }
     }
 

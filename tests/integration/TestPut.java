@@ -36,6 +36,8 @@ public class TestPut {
 
             String content = Files.readString(createdFilePath);
             assertEquals(testContent, content);
+
+            server.stop();
         }
     }
 }

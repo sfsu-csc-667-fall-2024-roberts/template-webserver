@@ -34,6 +34,8 @@ public class TestMimeTypes {
 
             assertEquals("HTTP/1.1 200 Ok", reader.getFirstLine());
             assertEquals(expectedMimeType, reader.getContentType());
+
+            server.stop();
         }
     }
 

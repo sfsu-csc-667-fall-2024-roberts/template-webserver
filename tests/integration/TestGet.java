@@ -38,6 +38,8 @@ public class TestGet {
             for (int index = 0; index < testContent.length(); index++) {
                 assertEquals(testContent.charAt(index), body[index]);
             }
+
+            server.stop();
         }
     }
 
@@ -52,6 +54,8 @@ public class TestGet {
             RequestReader reader = new RequestReader(is);
 
             assertEquals("HTTP/1.1 404 Not Found", reader.getFirstLine());
+
+            server.stop();
         }
     }
 }

@@ -31,6 +31,8 @@ public class TestHead {
             assertEquals("text/plain", reader.getContentType());
 
             assertNull(reader.getBody());
+
+            server.stop();
         }
     }
 }

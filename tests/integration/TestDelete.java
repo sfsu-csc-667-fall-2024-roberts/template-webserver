@@ -32,6 +32,8 @@ public class TestDelete {
             assertEquals("HTTP/1.1 204 No Content", reader.getFirstLine());
 
             assertFalse(Files.exists(Path.of(docRoot, "deldir", "test-delete.txt")));
+
+            server.stop();
         }
     }
 }

@@ -7,6 +7,7 @@ import server.config.MimeTypes;
 public class WebServer implements AutoCloseable {
 
     private ServerSocket serverSocket;
+    private boolean running;
 
     public static void main(String[] args) throws NumberFormatException, Exception {
         if (args.length != 2) {
@@ -22,7 +23,7 @@ public class WebServer implements AutoCloseable {
     }
 
     public WebServer(int port, String documentRoot) {
-
+        this.running = true;
     }
 
     /**
@@ -31,6 +32,8 @@ public class WebServer implements AutoCloseable {
      * image/jpeg\ngif image/gif\n
      */
     public WebServer(int port, String documentRoot, String mimeTypeFileContent) {
+        this.running = true;
+
         MimeTypes mimeTypes = MimeTypes.getDefault();
 
         // Parse the mimeTypesFileContent and add the mime types to the mimeTypes object
@@ -51,9 +54,13 @@ public class WebServer implements AutoCloseable {
     public void listen() {
 
         // Feel free to change this logic
-        while (true) {
+        while (this.running) {
             // Handle a request
         }
+    }
+
+    public void stop() {
+        this.running = false;
     }
 
     @Override

@@ -29,6 +29,8 @@ public class TestBadRequest {
 
                 RequestReader reader = new RequestReader(socket.getInputStream());
                 assertEquals("HTTP/1.1 400 Bad Request", reader.getFirstLine());
+
+                server.stop();
             }
         }
     }
