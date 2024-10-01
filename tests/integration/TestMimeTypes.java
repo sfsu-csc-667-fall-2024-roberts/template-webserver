@@ -37,7 +37,7 @@ public class TestMimeTypes {
         }
     }
 
-    private Stream<Arguments> provideMimeTypes() {
+    private static Stream<Arguments> provideMimeTypes() {
         return Stream.of(
                 Arguments.of("text/html", "html-file.html"),
                 Arguments.of("text/plain", "text-file.txt"),
